@@ -11,5 +11,5 @@ export function searchImage(request) {
     '&orientation=horizontal' +
     '&safesearch=true';
 
-  return axios.get(URL);
+  return axios.get(URL).then(response => [...response.data.hits]);
 }

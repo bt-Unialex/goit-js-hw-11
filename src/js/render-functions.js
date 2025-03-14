@@ -1,8 +1,9 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { galleryHTML } from '../main';
 
-export function renderGallary(images) {
+let gallery = new SimpleLightbox('.gallery a');
+
+export function renderGallary(images, galleryHTML) {
   let markup = images
     .map(
       image => `
@@ -36,7 +37,6 @@ export function renderGallary(images) {
   //   captionsData: 'alt',
   //   captionDelay: 250,
   // };
-  let gallery = new SimpleLightbox('.gallery a');
   galleryHTML.innerHTML = markup;
 
   gallery.refresh();
